@@ -1,7 +1,7 @@
 # Serial_Calculator
 
 
-Complied by CCS C
+## Complied by CCS C
 
 Using PIC16F877A 
 Clock 4MHz
