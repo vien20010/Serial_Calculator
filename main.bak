@@ -1,0 +1,128 @@
+#include "16F877A.h"
+#include "stdlib.h"
+#include "stdio.h"
+#use delay(clock=20000000)
+#use rs232(UART1)
+#define Enter 13
+#define Plus '+'
+#define Minus '-'
+#define Multiply '*'
+#define Divide '/'
+
+int a=0,b=0;
+%char str[64];
+
+#int_RDA
+void isrtran() {
+   a=1;
+   b= getc();
+}
+
+void Newline()
+{
+putc(0x0D); 
+putc(0x0A); 
+} 
+
+void Text_To_Usart(unsigned char *m)
+{
+unsigned char i;
+i = 0;
+while(m[i] != 0)
+{
+putc(m[i]);
+i++;}
+}
+
+void main()
+{
+double Calc;
+unsigned char MyKey,c,d;
+unsigned long Op1, Op2,Key;
+unsigned char msg1[] = " CALCULATOR PROGRAM";
+unsigned char msg2[] = " Enter First Number: ";
+unsigned char msg3[] = " Enter Second Number: ";
+unsigned char msg4[] = " Enter Operation: ";
+unsigned char msg5[] = " Result = ";
+   SET_TRIS_C(0x80);
+   enable_interrupts(int_RDA);
+   enable_interrupts(global);
+   setup_uart(9600);
+   
+for(;;)
+{
+MyKey = 0;
+Op1 = 0;
+Op2 = 0;
+Newline();
+Newline();
+Text_To_Usart(msg1);
+Newline();
+Newline();
+
+Text_To_Usart(msg2);
+while(1) {
+if(a==1)
+{
+MyKey=b;
+if(MyKey == Enter)
+ {a=0;
+ break;}
+putc(MyKey);
+Key = MyKey - '0';
+Op1 = 10*Op1 + Key;
+a=0;
+}
+}
+
+Newline();
+Text_To_Usart(msg3);
+while(1) {
+if(a==1)
+{
+MyKey=b;
+if(MyKey == Enter) {a=0;
+ break;}
+putc(MyKey);
+Key = MyKey - '0';
+Op2= 10*Op2+ Key;
+a=0;
+}
+}
+
+Newline();
+Text_To_Usart(msg4);
+while(1) {
+if(a==1)
+{
+MyKey=b;
+if(MyKey == Enter) {a=0;
+ break;}
+putc(MyKey);
+Key = MyKey;
+a=0;
+}
+}
+
+Newline();
+Text_To_Usart(msg5);
+switch(Key) 
+{
+case Plus:
+printf("%ld",Op1+Op2);
+break;
+case Minus:
+printf("%ld",Op1-Op2); 
+break;
+case Multiply:
+printf("%ld",Op1*Op2);
+break;
+case Divide:
+c=Op1;
+d=Op2;
+Calc=c/d;
+printf("%lf",Calc);
+break;
+}
+}
+}

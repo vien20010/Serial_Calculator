@@ -1,0 +1,29 @@
+ÀÄmain
+   ÃÄMAIN  0/526  Ram=110
+   ³  ÃÄ??0??
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄText_To_Usart  0/28  Ram=4
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄText_To_Usart  0/28  Ram=4
+   ³  ÃÄ@MUL1616  0/23  Ram=5
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄText_To_Usart  0/28  Ram=4
+   ³  ÃÄ@MUL1616  0/23  Ram=5
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄText_To_Usart  0/28  Ram=4
+   ³  ÃÄNewline  0/9  Ram=0
+   ³  ÃÄText_To_Usart  0/28  Ram=4
+   ³  ÃÄ@PRINTF_LD_9600_62_63  0/122  Ram=9
+   ³  ÃÄ@PRINTF_LD_9600_62_63  0/122  Ram=9
+   ³  ÃÄ@MUL1616  0/23  Ram=5
+   ³  ÃÄ@PRINTF_LD_9600_62_63  0/122  Ram=9
+   ³  ÃÄ@DIV88  0/25  Ram=3
+   ³  ÃÄ@ITOF  0/33  Ram=2
+   ³  ÀÄ@PRINTF_L32D_9600_62_63FPFPF  0/366  Ram=13
+   ³     ÃÄ@MULFF  (Inline)  Ram=13
+   ³     ÃÄ@FTOSD  (Inline)  Ram=5
+   ³     ÃÄ@DIV3232  0/68  Ram=13
+   ³     ÀÄ@DIV3232  0/68  Ram=13
+   ÀÄisrtran  0/10  Ram=0
